@@ -1,7 +1,14 @@
 """
 NBS - Null-Blockierungs-System (Zero Exclusion Logic)
-Zentrale Steuerungseinheit & ZOFI-Metrik
+Module: Central Control Unit & ZOFI-Metric (Core)
+Logic & Implementation: ORCID [0009-0003-9088-2341]
+Status: Experimental / Proof of Concept
 Version: 1.0
+License: Apache License 2.0 (see LICENSE file)
+
+DISCLAIMER: This software is provided "AS IS", without warranty of any kind.
+The mathematical logic is designed to structurally prevent zero-values in 
+mission-critical systems. Use at your own risk.
 """
 
 from nbs_zdu import ZeroDetectionUnit
@@ -41,25 +48,22 @@ class NBSCoreSystem:
         # 2. Ausführung der NBS-Logik (ZOB nutzt die Axiome aus dem Whitepaper)
         result = self.zob.execute(op, a, b)
         
-        # 3. Stabilisierung (Neu: Mit Limit-Prüfung und NaN-Schutz)
+        # 3. Stabilisierung (Inklusive Limit-Prüfung und NaN-Schutz)
         result = self.smh.stabilize(result)
         
         # 4. Klassische Vergleichswerte für ZOFI-Berechnung
-        # Simulation der Standard-Mathematik
         if op == "mul": 
-            classical = 0.0 # x * 0 = 0
+            classical = 0.0 # Standard: x * 0 = 0
         elif op == "div": 
-            classical = 0.0 # Crash-Ersatzwert
+            classical = 0.0 # Standard: Crash (hier als 0 simuliert)
         else: 
             classical = result
             
         zofi = zofi_metric(result, classical)
         return result, zofi
 
-# Selbsttest für die erweiterten Funktionen
 if __name__ == "__main__":
-    # Wir setzen ein niedriges Limit für den Test (z.B. 1000), 
-    # um die Normalisierung zu provozieren
+    # Test mit niedrigem Limit, um die Normalisierung zu provozieren
     system = NBSCoreSystem(safe_limit=1000.0)
     
     print("--- NBS Stabilitäts-Test ---")
@@ -68,7 +72,6 @@ if __name__ == "__main__":
     val, z = system.compute("mul", 42.0, 0.0)
     print(f"Multiplikation (42 * 0): {val} | ZOFI: {z}")
     
-    # Test 2: Normalisierungs-Check (Wert über Limit)
-    # Hier simulieren wir einen extremen Wert bei hohem Risiko
+    # Test 2: Normalisierungs-Check (5000 / 0 -> Deckelung auf 1000)
     val_high, z_high = system.compute("div", 5000.0, 0.0) 
     print(f"Normalisierung (5000 / 0 -> Limit): {val_high} | ZOFI: {z_high}")
