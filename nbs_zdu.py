@@ -1,13 +1,9 @@
 """
 NBS - Null-Blockierungs-System (Zero Exclusion Logic)
-Module: Zero Detection Unit (ZDU)
+Module: Zero-Detection-Unit (ZDU)
 Logic & Implementation: ORCID [0009-0003-9088-2341]
 Status: Experimental / Proof of Concept
-License: Apache License 2.0 (see LICENSE file)
-
-DISCLAIMER: This software is provided "AS IS", without warranty of any kind.
-The mathematical logic is designed to structurally prevent zero-values in 
-mission-critical systems. Use at your own risk.
+License: Apache License 2.0
 """
 
 class ZeroDetectionUnit:
@@ -15,5 +11,8 @@ class ZeroDetectionUnit:
         self.epsilon = epsilon
 
     def is_zero(self, x):
-        """Erkennt Null- oder Null-nahe Werte bevor sie Schaden anrichten."""
+        """
+        Deterministische Identifikation von Operationen mit Null-Zustand.
+        Erkennt Null- oder nullnahe Werte, bevor sie numerisch wirksam werden.
+        """
         return abs(x) <= self.epsilon
