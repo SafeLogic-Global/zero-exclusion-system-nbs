@@ -19,7 +19,7 @@ Das NBS wirkt nicht nur bei Divisionen, sondern schützt die gesamte Datenpipeli
 
 ---
 
-## 🎯 Vergleich mit bisherigen Lösungen / Comparison
+##  🚀 Vergleich mit bisherigen Lösungen / Comparison
 
 | Methode | Status durch NBS | Vorteil NBS |
 | :--- | :--- | :--- |
