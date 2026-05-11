@@ -2,7 +2,7 @@
 
 **Status:** Version 1.0 (Experimental / Proof of Concept)  
 **Urheber:** [0009-0003-9088-2341](https://orcid.org)  
-**Lizenz:** Apache License 2.0 (Bewusster Verzicht auf Patent zur freien Nutzung
+**Lizenz:** Apache License 2.0 (Bewusster Verzicht auf Patent zur freien Nutzung)
 
 ---
 
