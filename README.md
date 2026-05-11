@@ -35,28 +35,48 @@ Das NBS wirkt nicht nur bei Divisionen, sondern schützt die gesamte Datenpipeli
 
 ---
 
-graph TD
-    %% Zentrale Eingabe
-    IN[Datenstrom / Input] --> NBS{<b>NBS Core</b>}
+## 📂 Systemstruktur / System Structure
+Die 4 Kernmodule bilden das mathematische Fundament des NBS, ergänzt durch eine kontinuierliche Validierung.
 
-    %% Die 4 Kernmodule
+```mermaid
+graph TD
+    IN[Datenstrom / Input] --> NBS{<b>NBS Core</b>}
     subgraph "Mathematisches Fundament"
         NBS --> ZDU[<b>ZDU</b><br/>Zero Detection Unit]
         NBS --> FAP[<b>FAP</b><br/>Flow Analysis Protocol]
         NBS --> ZOB[<b>ZOB</b><br/>Zero Obstruction Barrier]
         NBS --> SMH[<b>SMH</b><br/>System Main Handler]
     end
-
-    %% Validierung
-    ZDU & FAP & ZOB & SMH --> MET[<b>Fehlermetrik</b><br/>Audit & Validierung]
-
-    %% Ausgang
+    ZDU & FAP & ZOB & SMH --> MET[<b>Fehlermetrik</b><br/>Audit & Maintenance]
     MET --> OUT[Sichere Datenpipeline]
 
-    %% Styling
     style NBS fill:#f96,stroke:#333,stroke-width:2px
     style MET fill:#bbf,stroke:#333,stroke-width:2px
     style OUT fill:#9f9,stroke:#333,stroke-width:2px
+```
+
+### 📈 Standardisierte Fehlermetrik (Audit & Maintenance)
+Das NBS liefert erstmals eine präzise Qualitätskennzahl für Null-Eingriffe zur Überwachung der Systemintegrität.
+
+
+| Metrik | Beschreibung | Zielwert |
+| :--- | :--- | :--- |
+| **Z-Prevention Rate** | Im Vorfeld blockierte Null-Werte | > 99.9% |
+| **Audit-Trail Latency** | Verzögerung durch Validierung | < 5 $\mu s$ |
+| **Logic Integrity Score** | Mathematische Konsistenz | 1.0 (Fixiert) |
+
+Die Qualitätssicherung basiert auf der Akkumulation verhinderter Singularitäten $S$:
+$$ Q_{nbs} = \lim_{t \to \infty} \left( 1 - \frac{\sum E_{null}}{N_{total}} \right) $$
+
+### 📊 Performance & Sicherheits-Benchmarks
+
+
+| Fehlertyp | Herkömmliche Methoden | **NBS (Proaktive Logik)** | Effekt |
+| :--- | :--- | :--- | :--- |
+| **Null-Propagation** | Fehler breitet sich aus | **Strukturell blockiert** | 100% Sicherheit |
+| **Runtime Exceptions** | Systemstopp / Crash | **Vermeidung im Vorfeld** | Hochverfügbarkeit |
+| **Latenz (Handling)** | Variabel (reaktiv) | **Konstant (proaktiv)** | Vorhersehbare Zeit |
+
 
 ---
 
