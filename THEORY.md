@@ -44,3 +44,52 @@ Die Einführung des NBS erfordert die Untersuchung bestehender mathematischer St
 ---
 **Status:** Theoretisches Manuskript zur wissenschaftlichen Diskussion.  
 **Urheber:** [0009-0003-9088-2341]
+
+---
+
+# NBS – Theoretical Foundation (Whitepaper)
+
+## Abstract
+The **Null-Blocking-System (NBS)** reforms the treatment of the number 0 in basic arithmetic. While addition and subtraction remain unchanged, multiplication and division are blocked if an operand is 0. The goal is a system where operations with 0 do not "delete" or destroy the existing value, but leave it unchanged (**"Non-Operation"**).
+
+---
+
+## 1. The NBS Axioms (Formulas)
+
+### 1.1 Addition & Subtraction (Unchanged)
+*   `a + 0 = a`
+*   `a - 0 = a`
+
+### 1.2 Multiplication (Blocking)
+*   `a • 0 = a`
+*   `0 • a = a`
+*Difference to classical arithmetic: The information of 'a' is preserved.*
+
+### 1.3 Division (Blocking)
+*   `a : 0 = a` (Operation is blocked instead of undefined)
+*   `0 : a = 0` (Consistency of the numerator)
+
+---
+
+## 2. Practical Benefits & Safety
+
+### 2.1 Prevention of System Crashes
+By blocking division by zero (`a : 0 = a`), **runtime errors**, **NaN states**, and **Inf errors** are eliminated in mission-critical environments (financial software, aviation, medicine).
+
+### 2.2 Protection against Data Loss
+In classical systems, `x * 0 = 0`. The information `x` is destroyed. In NBS, the state `x` is preserved, which is particularly significant in **data processing** and **sensor input**.
+
+### 2.3 AI & Neural Networks
+NBS prevents the problem of **"Dead Neurons"**, as weights are not completely deleted by zero-multiplications. This leads to more robust training processes.
+
+---
+
+## 3. Research Questions
+The introduction of NBS requires the investigation of existing mathematical structures:
+*   **Algebra:** Modification of ring definitions without a multiplicative null element.
+*   **Analysis:** New limit values without the division-by-zero problem.
+*   **Physics:** Reinterpretation of rest mass and zero fields.
+
+---
+**Status:** Theoretical manuscript for scientific discussion.  
+**Author:** [0009-0003-9088-2341]
