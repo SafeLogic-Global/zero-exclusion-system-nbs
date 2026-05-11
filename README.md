@@ -70,8 +70,7 @@ $$ \boxed{\text{ZOFI}(X) = \frac{E_{\text{zero}}}{n}} $$
 ---
 
 ## 📂 Repository-Inhalt
-* `/core`: Implementierung der Module ZDU, ZOB, FAP, SMH.
-* `/metrics`: Berechnung des ZOFI-Index.
+* `/core`: Implementierung der Module ZDU, ZOB, FAP, SMH und ZOFI-Index
 * `THEORY.md`: Detaillierte mathematische Herleitung und Beweisführung.
 * `examples/`: Beispiel-Skripte für den Einsatz in KI- und Finanzsystemen.
 
