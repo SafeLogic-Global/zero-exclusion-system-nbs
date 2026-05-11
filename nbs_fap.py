@@ -1,6 +1,6 @@
 """
 NBS - Null-Blockierungs-System (Zero Exclusion Logic)
-Module: Failure Anticipation Predictor (FAP)
+Module: Fallback-Arithmetic-Protocol (FAP)
 Logic & Implementation: ORCID [0009-0003-9088-2341]
 Status: Experimental / Proof of Concept
 License: Apache License 2.0 (see LICENSE file)
@@ -10,14 +10,18 @@ The mathematical logic is designed to structurally prevent zero-values in
 mission-critical systems. Use at your own risk.
 """
 
-class FailureAnticipationPredictor:
+class FallbackArithmeticProtocol:
     def assess_risk(self, a, b, is_zero_a, is_zero_b):
         """
-        Deterministische Risikoabschätzung vor der Operation.
-        Erkennt Gefahr präventiv, nicht reaktiv.
+        Deterministisches Entscheidungsprotokoll zur Steuerung des Systemverhaltens.
+        Erkennt Gefahren präventiv vor der Operation und triggert die NBS-Sicherheitslogik.
         """
         if is_zero_b:
-            return 0.95  # Hohes Risiko bei Division durch Null oder Ähnlichem
+            # Kritisches Risiko: Gefahr von Division durch Null oder Singularität
+            return 0.95  
         if is_zero_a:
-            return 0.6   # Moderates Risiko je nach Kontext
-        return 0.1       # Sicherer Bereich
+            # Moderates Risiko: Mögliche Null-Propagation im Datenfluss
+            return 0.6   
+        
+        # Sicherer Bereich: Operation kann stabil ausgeführt werden
+        return 0.1       
