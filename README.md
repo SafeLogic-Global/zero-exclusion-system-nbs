@@ -35,6 +35,31 @@ Das NBS wirkt nicht nur bei Divisionen, sondern schützt die gesamte Datenpipeli
 
 ---
 
+graph TD
+    %% Zentrale Eingabe
+    IN[Datenstrom / Input] --> NBS{<b>NBS Core</b>}
+
+    %% Die 4 Kernmodule
+    subgraph "Mathematisches Fundament"
+        NBS --> ZDU[<b>ZDU</b><br/>Zero Detection Unit]
+        NBS --> FAP[<b>FAP</b><br/>Flow Analysis Protocol]
+        NBS --> ZOB[<b>ZOB</b><br/>Zero Obstruction Barrier]
+        NBS --> SMH[<b>SMH</b><br/>System Main Handler]
+    end
+
+    %% Validierung
+    ZDU & FAP & ZOB & SMH --> MET[<b>Fehlermetrik</b><br/>Audit & Validierung]
+
+    %% Ausgang
+    MET --> OUT[Sichere Datenpipeline]
+
+    %% Styling
+    style NBS fill:#f96,stroke:#333,stroke-width:2px
+    style MET fill:#bbf,stroke:#333,stroke-width:2px
+    style OUT fill:#9f9,stroke:#333,stroke-width:2px
+
+---
+
 ## 📖 Theorie & Rechtliches / Theory & Legal
 * **Detaillierte Theorie:** Siehe [THEORY.md](./THEORY.md).
 * **Kein Patent:** Bewusster Verzicht zur freien Nutzung für die Menschheit.
