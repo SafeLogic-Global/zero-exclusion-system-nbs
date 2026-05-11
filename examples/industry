@@ -1,0 +1,115 @@
+# Zielgruppen & Marktbedarf für die NBS+Fehlermetrik
+
+Hier ist eine präzise, realistische und sofort nutzbare Liste der Branchen und Unternehmen, die nachweislich einen hohen Bedarf an einer Fehlermetrik und dem **NBS (Null-Blockierungs-System)** haben. Diese Firmen benötigen NBS sofort, da Null-Operationen und Floating-Point-Instabilität bereits heute kritische Probleme verursachen.
+
+---
+
+## 🚗 1. Automobilindustrie (Safety-kritische Steuergeräte)
+*Hier ist die Zuverlässigkeit gesetzlich vorgeschrieben (ISO 26262).*
+
+**Relevante Firmen:**
+* **OEMs:** BMW, Mercedes-Benz, Audi / VW, Porsche, Toyota, Hyundai, Tesla, Volvo
+* **Zulieferer:** Bosch, Continental, Magna
+
+**Warum NBS?**
+* **Sensorfusion:** Erzeugt häufig Divisionen durch 0 und NaN-Werte.
+* **Radar/Lidar:** Verarbeiten massenhaft Nullvektoren.
+* **Filter-Instabilität:** Kalman-Filter brechen bei numerischen Instabilitäten zusammen.
+* **Autonomes Fahren:** Benötigt eine bisher fehlende numerische Stabilitätsanalyse für Sicherheitsnachweise.
+
+---
+
+## 🚀 2. Luft- und Raumfahrt
+*Extrem hohe Sicherheitsanforderungen und Fehlertoleranz gegen Null.*
+
+**Relevante Firmen:**
+* Airbus, Boeing, SpaceX, Lockheed Martin, Northrop Grumman, Thales, Raytheon, Honeywell Aerospace
+
+**Bedarf:**
+* Flugsteuerungen basieren massiv auf Floating-Point-Berechnungen.
+* Navigation & Autopiloten tolerieren keine instabilen Nulloperationen.
+* **Risiko:** Die NASA berichtet regelmäßig über NaN-Risiken in Simulationen; Instabilitäten führen hier zu Milliardenverlusten.
+
+---
+
+## 🏥 3. Medizinische Geräte & Bildgebung
+*Präzision entscheidet über Diagnosen.*
+
+**Relevante Firmen:**
+* Siemens Healthineers, GE Healthcare, Philips, Medtronic, Fujifilm Healthcare, Canon Medical
+
+**Warum NBS?**
+* **Bildrekonstruktion:** CT/MRT/Ultraschall sind extrem empfindlich gegenüber Subnormalen Underflows und NaN-Propagation.
+* **Regulierung:** NBS bietet einen enormen Wert für die Zertifizierung nach **IEC 62304**.
+
+---
+
+## 💹 4. Finanzwesen / Algorithmenhandel
+*Fehler im Millisekundenbereich führen zu Millionenverlusten.*
+
+**Relevante Firmen:**
+* Bloomberg, Goldman Sachs, JP Morgan, Morgan Stanley, BlackRock, Citadel, Deutsche Bank, HSBC
+
+**Bedarf:**
+* Algorithmen brechen bei NaN oder INF häufig "still" zusammen.
+* Zero-Operations werden fast nie aktiv überwacht, können aber fehlerhafte Trades auslösen.
+
+---
+
+## ⚡ 5. Chip- und GPU-Hersteller
+*Hardware-Validierung auf unterster Ebene.*
+
+**Relevante Firmen:**
+* Intel, NVIDIA, AMD, Qualcomm, ARM, Apple (Silicon Team)
+
+**Warum NBS?**
+* Hardware-FPUs und Tensor Cores können instabile Nulloperationen verstärken.
+* NBS dient hier als essenzielles **Debug- und Benchmarking-Tool** für die nächste Generation von Prozessoren.
+
+---
+
+## 🤖 6. KI / Machine Learning / Big Data
+*Stabilität für Deep Learning Frameworks.*
+
+**Relevante Firmen:**
+* Google DeepMind, OpenAI, Meta AI, Microsoft AI, Amazon AWS AI, Anthropic, HuggingFace, Databricks, Snowflake
+
+**Bedarf:**
+* Neuronale Netze leiden unter **Gradient Exploding/Vanishing**.
+* ML-Modelle scheitern oft an Division durch Null während der Normalisierung oder bei Softmax-Berechnungen.
+
+---
+
+## ⚙️ 7. Industrieautomation & Robotik
+*Echtzeit-Stabilität für die Fertigung.*
+
+**Relevante Firmen:**
+* KUKA, ABB Robotics, FANUC, Siemens PLC, Rockwell Automation, Bosch Rexroth
+
+**Warum NBS?**
+* PID-Regler werden instabil, wenn 0-Werte in Sensordaten falsch verarbeitet werden.
+* Roboter benötigen garantierte numerische Stabilität für komplexe Bewegungsabläufe.
+
+---
+
+## 💡 8. Energie & Netzsteuerung
+*Schutz kritischer Infrastruktur.*
+
+**Relevante Firmen:**
+* Siemens Energy, ABB, GE Power, Schneider Electric, Hitachi Energy
+
+**Bedarf:**
+* Netzsimulationen reagieren hochsensibel auf Nulloperationen; ein NaN kann ganze Simulationsreihen unbrauchbar machen.
+
+---
+
+## 📌 Zusammenfassung: 
+
+| Sektor | Kernproblem | Benefit durch NBS |
+| :--- | :--- | :--- |
+| **Automotive** | Sensor-Rauschen & 0-Division | Sicherheitsgewinn (ISO 26262) |
+| **Luftfahrt** | Numerische Drift | Ausfallsicherheit |
+| **Medtech** | Bild-Artefakte | Präzisere Diagnostik |
+| **Finance** | Silent Fails (NaN) | Risikominimierung |
+| **Halbleiter** | FPU-Validierung | Hardware-Optimierung |
+| **KI / ML** | Training-Crashes | Modell-Stabilität |
